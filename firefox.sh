@@ -18,7 +18,7 @@ if ! container_exists firefox ; then
 	for d in `find /dev/dri -type c` ; do
 		dri_devices+=(--device "${d}")
 	done
-	exec docker run  --name firefox --volumes-from storage --env DISPLAY="${DISPLAY}" --volume /tmp/.X11-unix:/tmp/.X11-unix --env PULSE_SERVER=unix:/tmp/pulse-unix --volume /run/user/"${UID}"/pulse/native:/tmp/pulse-unix "${dri_devices[@]}" firefox5
+	exec docker run  --name firefox --volumes-from storage --env DISPLAY="${DISPLAY}" --volume /tmp/.X11-unix:/tmp/.X11-unix --env PULSE_SERVER=unix:/tmp/pulse-unix --volume /run/user/"${UID}"/pulse/native:/tmp/pulse-unix "${dri_devices[@]}" serdyuk/firefox-vmwatre-console
 
 fi
 
